@@ -30,9 +30,13 @@ module MegaCalendar
             end
           end
         end
-        alias_method_chain :update, :plugin
-        alias_method_chain :create, :plugin # This tells Redmine to allow me to extend show by letting me call it via "show_without_plugin" above.
+        #alias_method_chain :update, :plugin
+        #alias_method_chain :create, :plugin # This tells Redmine to allow me to extend show by letting me call it via "show_without_plugin" above.
         # I can outright override it by just calling it "def show", at which case the original controller's method will be overridden instead of extended.
+	alias_method :update_without_plugin, :update_with_plugin
+	alias_method :update_with_plugin, :update_without_plugin
+	alias_method :create_without_plugin, :create_with_plugin
+	alias_method :create_with_plugin, :create_without_plugin
       end
     end
   end

@@ -1,4 +1,4 @@
-class CreateTicketTimes < ActiveRecord::Migration
+class CreateTicketTimes < ActiveRecord::Migration[4.2]
   def up
     create_table :ticket_times do |t|
       t.time :time_begin
